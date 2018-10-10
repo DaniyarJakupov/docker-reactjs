@@ -9,3 +9,11 @@ services:
     volumes: # use reference to local files, thus enabling HMR
       - /reactapp/node_modules
       - .:/reactapp
+  reacttests:
+    build:
+      context: . # from where to use the files for the base image
+      dockerfile: Dockerfile.dev # specify dockerfile
+    volumes: # use reference to local files, thus enabling HMR
+      - /reactapp/node_modules
+      - .:/reactapp
+    command: ['npm', 'run', 'test'] # override default cmd to run tests instead
