@@ -4,7 +4,7 @@ FROM node:alpine
 # Create a dir for the app
 WORKDIR /reactapp
 
-# Copy package.json to usr/app folder inside docker image
+# Copy package.json to /reactapp folder inside docker image
 COPY package.json .
 
 # Install dependencies
