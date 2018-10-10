@@ -1,0 +1,11 @@
+version: '3'
+services:
+  reactapp:
+    build:
+      context: . # from where to use the files for the base image
+      dockerfile: Dockerfile.dev # specify dockerfile
+    ports: # map local port to port inside running container
+      - '3000:3000'
+    volumes: # use reference to local files, thus enabling HMR
+      - /reactapp/node_modules
+      - .:/reactapp
