@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t daniyarjakupov/docker-reactjs -f Dockerfile.dev .
+
+script:
+  - docker run daniyarjakupov/docker-reactjs npm run test -- --coverage
