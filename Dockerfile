@@ -19,4 +19,5 @@ CMD ["npm", "run", "build"]
 
 # Run stage
 FROM nginx
+EXPOSE 80
 COPY --from=builder /reactapp/build /usr/share/nginx/html
