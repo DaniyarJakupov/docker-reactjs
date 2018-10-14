@@ -1,4 +1,5 @@
-# Use node image for builder stage
+# 1. Builder stage
+# Use node image 
 FROM node:alpine as builder
 
 # Create a dir for the app
@@ -17,7 +18,7 @@ COPY . .
 # a.k.a Default command
 CMD ["npm", "run", "build"]
 
-# Run stage
+# 2. Run stage
 FROM nginx
 EXPOSE 80
 COPY --from=builder /reactapp/build /usr/share/nginx/html
